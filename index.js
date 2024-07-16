@@ -1,22 +1,20 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+function hasTargetSum(arr, target) {
+  const seenNumbers = {};
+
+  for (let num of arr) {
+    const difference = target - num;
+    if (seenNumbers[difference]) {
+      return true;
+    }
+    seenNumbers[num] = true;
+  }
+
+  return false;
 }
+console.log(hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
+ 
 if (require.main === module) {
-  // add your own custom tests in here
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
